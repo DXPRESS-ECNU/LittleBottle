@@ -19,7 +19,6 @@
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
-		"nodeModules": false,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
@@ -30,7 +29,9 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"enhance": true,
+		"nodeModules": true
 	},
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},

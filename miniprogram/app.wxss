@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between; */
   padding-top: 20rpx;
-  padding-left: 100rpx;
-  padding-right: 100rpx;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
   box-sizing: border-box;
 } 

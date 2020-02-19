@@ -3,15 +3,14 @@
   <view id="title-row">
     <text id="title">我是标题</text>
   </view>
-  <view class="bottle-grid">
-    <template is="bottle"></template>
-    <template is="bottle"></template>
-    <template is="bottle"></template>
-    <template is="bottle"></template>
-    <template is="bottle"></template>
+  <view class="bottle-grid"> 
+    <view wx:for="{{bottles}}" wx:for-item="bt" wx:for-index="idx">
+      <template is="bottle" data="{{...bt, idx: idx}}"></template>
+    </view>
   </view>
 </view>
 
 <template name="bottle">
-  <image src="cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottle.svg" class="empty"></image>
+  <image src="cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottle.svg" class="empty" bindtap="updateBottle" data-index="{{idx}}"></image>
+
 </template>

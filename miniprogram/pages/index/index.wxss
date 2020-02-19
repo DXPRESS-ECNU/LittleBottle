@@ -8,7 +8,7 @@
   display: grid;
   margin-top: 50rpx;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(6, 150rpx);
   justify-content: center;
 }
 
