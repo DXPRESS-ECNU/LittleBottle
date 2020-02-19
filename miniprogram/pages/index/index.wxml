@@ -13,5 +13,5 @@
 </view>
 
 <template name="bottle">
-  <image src="../../bottles/bottle.svg" class="empty"></image>
+  <image src="cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottle.svg" class="empty"></image>
 </template>

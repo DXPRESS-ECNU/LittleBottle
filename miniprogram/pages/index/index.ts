@@ -1,6 +1,7 @@
 // index.ts
 // 获取应用实例
 const app = getApp<IAppOption>()
+const URL_PREFIX = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/"
 
 interface IBottleConfig{
   path: string
@@ -13,12 +14,12 @@ class Bottle {
   full: number
 
   constructor(content: IBottleConfig) {
-    this.path = content.path
+    this.path = URL_PREFIX + content.path
     this.name = content.name
     this.full = 0
   }
 
-  click() {
+  update() {
     if (this.full < 5) {
       this.full += 1
     }
@@ -40,9 +41,33 @@ Page({
     })
   },
   onLoad() {
-    var bottledata = require('../../bottles/bottles.js')
-    var contents: IBottleConfig[] = bottledata.bottlelist
-    const bottles = contents.map(config => new Bottle(config))
+    wx.cloud.init()
+    var fs = wx.getFileSystemManager()
+    wx.cloud.downloadFile({
+      fileID: 'cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottlelist1.json',
+      success: res => {
+        console.log(res.tempFilePath)
+        var contents: IBottleConfig[] = JSON.parse(fs.readFileSync(res.tempFilePath, "utf8").toString())
+        const bottles = contents.map(config => new Bottle(config))
+        this.setData({
+          bottles
+        })
+        console.log(this.data.bottles)
+      },
+      fail: console.error
+    })
+    // var bottledata = require('../../bottles/bottles.js')
+    // var contents: IBottleConfig[] = bottledata.bottlelist
+    // const bottles = contents.map(config => new Bottle(config))
+    // this.setData({
+    //   bottles
+    // })
+    // console.log(this.data.bottles)
+  },
+  updateBottle(event){
+    var bottles = this.data.bottles
+    var id = event.currentTarget.dataset.index
+    bottles[id].update()
     this.setData({
       bottles
     })
