@@ -2,12 +2,36 @@
 // 获取应用实例
 const app = getApp<IAppOption>()
 
+interface IBottleConfig{
+  path: string
+  name: string
+}
+
+class Bottle {
+  path: string
+  name: string
+  full: number
+
+  constructor(content: IBottleConfig) {
+    this.path = content.path
+    this.name = content.name
+    this.full = 0
+  }
+
+  click() {
+    if (this.full < 5) {
+      this.full += 1
+    }
+    else
+    {
+      this.full = 0
+    }
+  }
+}
+
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    bottles:[],
   },
   // 事件处理函数
   bindViewTap() {
@@ -16,39 +40,11 @@ Page({
     })
   },
   onLoad() {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true,
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true,
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true,
-          })
-        },
-      })
-    }
-  },
-  getUserInfo(e: any) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+    var bottledata = require('../../bottles/bottles.js')
+    var contents: IBottleConfig[] = bottledata.bottlelist
+    const bottles = contents.map(config => new Bottle(config))
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true,
+      bottles
     })
   },
 })
