@@ -1,0 +1,10 @@
+[
+    {
+        "path":"filename.jpg",
+        "name":"图片名称"
+    },
+    {
+        "path":"filename2.jpg",
+        "name":"图片名称2"
+    }
+]
