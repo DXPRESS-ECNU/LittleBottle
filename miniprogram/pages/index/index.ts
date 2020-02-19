@@ -14,11 +14,7 @@ class Bottle {
   full: number
 
   constructor(content: IBottleConfig) {
-<<<<<<< HEAD
     this.path = URL_PREFIX + content.path
-=======
-    this.path = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/"+content.path
->>>>>>> master
     this.name = content.name
     this.full = 0
   }
