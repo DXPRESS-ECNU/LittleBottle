@@ -51,6 +51,7 @@ Page({
     bottles:[] as Bottle[],
     exportbtnDis: false,
     exportbtnText: "分享图片",
+    isauth: true,
   },
   onLoad() {
     wx.cloud.init()
@@ -91,6 +92,28 @@ Page({
       exportbtnDis: true,
       exportbtnText: "正在生成..."
     })
-    Export(this.data.bottles)
+    Export(this.data.bottles, ()=>{
+      this.setData({
+        exportbtnDis: true,
+        exportbtnText: "已保存"
+      })
+    },()=>{
+      this.setData({
+        isauth: false
+      })
+    },()=>{
+      this.setData({
+        exportbtnDis: false,
+        exportbtnText: "分享图片"
+      })
+    })
+  },
+  openSetting(){
+    wx.openSetting()
+    this.setData({
+      exportbtnDis: false,
+      exportbtnText: "分享图片",
+      isauth: true
+    })
   }
 })

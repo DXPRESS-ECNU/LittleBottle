@@ -1,4 +1,4 @@
-export const Export=(bottles: any[]): void =>{
+export const Export=(bottles: any[],success: Function,needauth: Function,getauth: Function): void =>{
   const drawPic = (context: WechatMiniprogram.CanvasContext, url: string, quality: number[]): void =>{
     let x = quality[0]
     let y = quality[1]
@@ -66,6 +66,7 @@ export const Export=(bottles: any[]): void =>{
 
   const context = wx.createCanvasContext('bottleImg')
   const bottleUrl = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottle.png"
+
   wx.cloud.downloadFile({
     fileID: bottleUrl,
     success: res =>{
@@ -82,9 +83,27 @@ export const Export=(bottles: any[]): void =>{
               filePath: res.tempFilePath,
               success() {
                 console.log("成功保存")
+                success()
               },
               fail(res) {
                 console.log(res.errMsg)
+                wx.getSetting({
+                  success(res) {
+                    if (!res.authSetting['scope.writePhotosAlbum']) {
+                      needauth()
+                      wx.authorize({
+                        scope: 'scope.writePhotosAlbum',
+                        success () {
+                          getauth()
+                        },
+                        fail () {
+                          console.error("Authorization Failed")
+                          needauth()
+                        }
+                      })
+                    }
+                  }
+                })
               }
             })
           }
