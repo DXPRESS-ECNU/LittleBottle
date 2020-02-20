@@ -13,13 +13,12 @@
 <template name="bottle">
   <view>
     <view class="bottle">
-      <image src="cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottle.svg"     class="empty" bindtap="updateBottle" data-index="{{idx}}">
-      </image>
-      <image class="stuff1" src="../../bottles/1.png"></image>
-      <image class="stuff2" src="../../bottles/1.png"></image>
-      <!-- <image class="stuff3" src="../../bottles/1.png"></image>
-      <image class="stuff4" src="../../bottles/1.png"></image>
-      <image class="stuff5" src="../../bottles/1.png"></image> -->
+      <image src="cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottle.svg" class="empty" bindtap="updateBottle" data-index="{{idx}}" bindtap="updateBottle"></image>
+      <image wx:if="{{full > 0}}" class="stuff1" src="{{path}}"></image>
+      <image wx:if="{{full > 1}}" class="stuff2" src="{{path}}"></image>
+      <image wx:if="{{full > 2}}" class="stuff3" src="{{path}}"></image>
+      <image wx:if="{{full > 3}}" class="stuff4" src="{{path}}"></image>
+      <image wx:if="{{full > 4}}" class="stuff5" src="{{path}}"></image>
     </view>
     <text class="name">{{name}}</text>
   </view>

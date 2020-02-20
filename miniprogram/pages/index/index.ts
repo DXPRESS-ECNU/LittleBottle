@@ -28,7 +28,7 @@ class Bottle {
     await wx.cloud.downloadFile({
       fileID: this.path
     }).then(res => {
-      console.log(res.tempFilePath)
+      //console.log(res.tempFilePath)
       this.path=res.tempFilePath
     }).catch(error => {
       console.error(error)
@@ -58,7 +58,7 @@ Page({
   },
   onLoad() {
     //调试用,记得删除
-    Export()
+    //Export()
 
     wx.cloud.init()
     var fs = wx.getFileSystemManager()
