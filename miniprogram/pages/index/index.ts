@@ -1,5 +1,8 @@
 // index.ts
 // 获取应用实例
+
+import { Export } from "./export"
+
 const app = getApp<IAppOption>()
 const URL_PREFIX = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/"
 
@@ -41,6 +44,9 @@ Page({
     })
   },
   onLoad() {
+    //调试用,记得删除
+    Export()
+
     wx.cloud.init()
     var fs = wx.getFileSystemManager()
     wx.cloud.downloadFile({
