@@ -1,5 +1,8 @@
 // index.ts
 // 获取应用实例
+
+import { Export } from "./export"
+
 const app = getApp<IAppOption>()
 const URL_PREFIX = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/"
 
@@ -14,7 +17,7 @@ class Bottle {
   full: number
 
   constructor(content: IBottleConfig) {
-    this.path = URL_PREFIX + content.path
+    this.path = URL_PREFIX + "figs/" + content.path
     this.name = content.name
     this.full = 0
   }
@@ -41,6 +44,9 @@ Page({
     })
   },
   onLoad() {
+    //调试用,记得删除
+    Export()
+
     wx.cloud.init()
     var fs = wx.getFileSystemManager()
     wx.cloud.downloadFile({
@@ -53,6 +59,7 @@ Page({
           bottles
         })
         console.log(this.data.bottles)
+
       },
       fail: console.error
     })
@@ -64,7 +71,7 @@ Page({
     // })
     // console.log(this.data.bottles)
   },
-  updateBottle(event){
+  updateBottle(event:any){
     var bottles = this.data.bottles
     var id = event.currentTarget.dataset.index
     bottles[id].update()
