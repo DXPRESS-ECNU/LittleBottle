@@ -9,6 +9,7 @@
     <button wx:if="{{isauth}}" bindtap='export' disabled='{{exportbtnDis}}'>{{exportbtnText}}</button>
     <button wx:if="{{!isauth}}" open-type="openSetting" bindtap='openSetting'>请授权</button>
   </view>
+  <view class="copyright">© 2020 大夏通讯社</view>
   <view style='width:1px;height:1rpx;overflow:hidden;'>
     <canvas style="width:1300px;height:2800px;" canvas-id="bottleImg"></canvas>
   </view>
