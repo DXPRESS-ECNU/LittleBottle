@@ -49,12 +49,8 @@ class Bottle {
 Page({
   data: {
     bottles:[] as Bottle[],
-  },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs',
-    })
+    exportbtnDis: false,
+    exportbtnText: "分享图片",
   },
   onLoad() {
     //调试用,记得删除
@@ -92,4 +88,10 @@ Page({
       bottles
     })
   },
+  export(){
+    this.setData({
+      exportbtnDis: true,
+      exportbtnText: "正在生成..."
+    })
+  }
 })

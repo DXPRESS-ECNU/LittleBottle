@@ -63,3 +63,9 @@ text {
   z-index: 5;
   transform: translateX(-70rpx) translateY(4rpx)
 }
+
+.footer{
+  height: 100rpx;
+  width: 100%;
+  margin-top: 30px;
+}
