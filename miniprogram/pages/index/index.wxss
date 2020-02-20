@@ -40,14 +40,14 @@ text {
   height: 40rpx;
   position: absolute;
   z-index: 2;
-  transform: translateX(-100rpx) translateY(67rpx)
+  transform: translateX(-100rpx) translateY(68rpx)
 }
 .stuff3 {
   width: 40rpx;
   height: 40rpx;
   position: absolute;
   z-index: 3;
-  transform: translateX(-70rpx) translateY(46rpx)
+  transform: translateX(-70rpx) translateY(45rpx)
 }
 .stuff4 {
   width: 40rpx;
@@ -61,7 +61,7 @@ text {
   height: 40rpx;
   position: absolute;
   z-index: 5;
-  transform: translateX(-70rpx) translateY(4rpx)
+  transform: translateX(-76rpx) translateY(-5rpx)
 }
 
 .footer{
