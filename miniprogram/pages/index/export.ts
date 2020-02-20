@@ -39,19 +39,19 @@ export const Export=(bottles: any[],success: Function,needauth: Function,getauth
               break
             }
             case 2:{
-              drawPic(context, bottles[bottleIndex].path, [50 * x + bottleWidth * (x - 1) + 5, (bottleHeight + 100) * (y - 1) + titleHeight + 150, picWidth, picWidth])
+              drawPic(context, bottles[bottleIndex].path, [50 * x + bottleWidth * (x - 1) + 5, (bottleHeight + 100) * (y - 1) + titleHeight + 160, picWidth, picWidth])
               break
             }
             case 3:{
-              drawPic(context, bottles[bottleIndex].path, [50 * x + bottleWidth * (x - 1) + 85, (bottleHeight + 100) * (y - 1) + titleHeight + 95, picWidth, picWidth])
+              drawPic(context, bottles[bottleIndex].path, [50 * x + bottleWidth * (x - 1) + 85, (bottleHeight + 100) * (y - 1) + titleHeight + 100, picWidth, picWidth])
               break
             }
             case 4:{
-              drawPic(context, bottles[bottleIndex].path, [50 * x + bottleWidth * (x - 1) + 5, (bottleHeight + 100) * (y - 1) + titleHeight + 50, picWidth, picWidth])
+              drawPic(context, bottles[bottleIndex].path, [50 * x + bottleWidth * (x - 1) + 5, (bottleHeight + 100) * (y - 1) + titleHeight + 60, picWidth, picWidth])
               break
             }
             case 5: {
-              drawPic(context, bottles[bottleIndex].path, [50 * x + bottleWidth * (x - 1) + 85, (bottleHeight + 100) * (y - 1) + titleHeight-5, picWidth, picWidth])
+              drawPic(context, bottles[bottleIndex].path, [50 * x + bottleWidth * (x - 1) + 63, (bottleHeight + 100) * (y - 1) + titleHeight-10, picWidth, picWidth])
               break
             }
           }
