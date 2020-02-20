@@ -81,7 +81,9 @@ Page({
     var id = event.currentTarget.dataset.index
     bottles[id].update()
     this.setData({
-      bottles
+      bottles,
+      exportbtnDis: false,
+      exportbtnText: "分享图片"
     })
   },
   export(){
@@ -90,9 +92,5 @@ Page({
       exportbtnText: "正在生成..."
     })
     Export(this.data.bottles)
-    this.setData({
-      exportbtnDis: false,
-      exportbtnText: "分享图片"
-    })
   }
 })
