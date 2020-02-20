@@ -8,6 +8,7 @@
   <view class="footer">
     <button bindtap='export' disabled='{{exportbtnDis}}'>{{exportbtnText}}</button>
   </view>
+  <canvas wx:if="{{false}}"style="width:1300px;height:4000px;" canvas-id="bottleImg"></canvas>
 </view>
 
 <template name="bottle">
@@ -23,4 +24,3 @@
     <text class="name">{{name}}</text>
   </view>
 </template>
-<canvas style="width:1300px;height:4000px" canvas-id="bottleImg"></canvas>
