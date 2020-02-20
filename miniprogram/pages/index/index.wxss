@@ -16,19 +16,16 @@ text {
   overflow: hidden;
 }
 
-.empty {
-  position: relative;
-  width: 130rpx;
-  height: 130rpx;
-}
-
 .name {
   display: block;
   font-size: 0.8rem;
 }
 
 .bottle {
-
+  position: relative;
+  width: 130rpx;
+  height: 130rpx;
+  z-index: 10;
 }
 
 .stuff1 {
@@ -63,5 +60,6 @@ text {
   width: 40rpx;
   height: 40rpx;
   position: absolute;
+  z-index: 5;
   transform: translateX(-70rpx) translateY(4rpx)
 }
