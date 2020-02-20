@@ -20,6 +20,19 @@ class Bottle {
     this.path = URL_PREFIX + "figs/" + content.path
     this.name = content.name
     this.full = 0
+    
+    this.download()
+  }
+
+  async download(){
+    await wx.cloud.downloadFile({
+      fileID: this.path
+    }).then(res => {
+      console.log(res.tempFilePath)
+      this.path=res.tempFilePath
+    }).catch(error => {
+      console.error(error)
+    })
   }
 
   update() {
