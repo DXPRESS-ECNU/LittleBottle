@@ -14,7 +14,7 @@ class Bottle {
   full: number
 
   constructor(content: IBottleConfig) {
-    this.path = URL_PREFIX + content.path
+    this.path = URL_PREFIX + "figs/" + content.path
     this.name = content.name
     this.full = 0
   }
