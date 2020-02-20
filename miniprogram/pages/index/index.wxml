@@ -23,4 +23,4 @@
     <text class="name">{{name}}</text>
   </view>
 </template>
-<!--<canvas style="width:1300px;height:4000px" canvas-id="bottleImg"></canvas>-->
+<canvas style="width:1300px;height:4000px" canvas-id="bottleImg"></canvas>

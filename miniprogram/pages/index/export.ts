@@ -1,19 +1,13 @@
-export const Export=(bottles: Bottle[]): void =>{
+export const Export=(bottles: any[]): void =>{
   const drawPic = (context: WechatMiniprogram.CanvasContext, url: string, quality: number[]): void =>{
     let x = quality[0]
     let y = quality[1]
     let width = quality[2]
     let height = quality[3]
-    wx.getImageInfo({
-      src: url,
-      success: function (res) {
-        context.drawImage(res.path, x, y, width, height)
-        context.draw(true)
-      },
-      fail: function (res) {
-        console.log(res.errMsg)
-      }
-    })
+
+    context.drawImage(url, x, y, width, height)
+    //context.draw(true)
+
   }
   const drawText = (context: WechatMiniprogram.CanvasContext, text: string, quality: number[]): void =>{
     let x = quality[0]
@@ -35,7 +29,7 @@ export const Export=(bottles: Bottle[]): void =>{
     context.draw()
     context.setFillStyle("black")
     
-    let bottleIndex = 1
+    let bottleIndex = 0
     for(let y = 1; y <= 6; ++y){
       for (let x = 1; x <= 5; ++x) {
         for (let i = 1; i <= bottles[bottleIndex].full; ++i){
@@ -76,26 +70,28 @@ export const Export=(bottles: Bottle[]): void =>{
     fileID: bottleUrl,
     success: res =>{
       drawAll(context, res.tempFilePath)
+
+      context.draw(true, function(){
+        wx.canvasToTempFilePath({
+          canvasId: "bottleImg",
+          quality: 1,
+          success(res) {
+            wx.saveImageToPhotosAlbum({
+              filePath: res.tempFilePath,
+              success() {
+                console.log("成功保存")
+              },
+              fail(res) {
+                console.log(res.errMsg)
+              }
+            })
+          }
+        })
+      })
+
+
     }
   })
   //保存
-  context.draw(true, function(){
-    setTimeout(function(){
-      wx.canvasToTempFilePath({
-        canvasId: "bottleImg",
-        quality: 1,
-        success(res) {
-          wx.saveImageToPhotosAlbum({
-            filePath: res.tempFilePath,
-            success() {
-              console.log("成功保存")
-            },
-            fail(res) {
-              console.log(res.errMsg)
-            }
-          })
-        }
-      })
-    }, 10000)
-  })
+
 }

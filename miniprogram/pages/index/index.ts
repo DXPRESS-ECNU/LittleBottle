@@ -89,5 +89,10 @@ Page({
       exportbtnDis: true,
       exportbtnText: "正在生成..."
     })
+    Export(this.data.bottles)
+    this.setData({
+      exportbtnDis: false,
+      exportbtnText: "分享图片"
+    })
   }
 })
