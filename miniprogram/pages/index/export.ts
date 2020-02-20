@@ -66,51 +66,61 @@ export const Export=(bottles: any[],success: Function,needauth: Function,getauth
 
   const context = wx.createCanvasContext('bottleImg')
   const bottleUrl = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottle.png"
+  const backgroundUrl = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/background.jpg"
+  let backgroundPath: string
 
   wx.cloud.downloadFile({
-    fileID: bottleUrl,
+    fileID: backgroundUrl,
     success: res =>{
-      drawAll(context, res.tempFilePath)
-
-      context.draw(true, function(){
-        wx.canvasToTempFilePath({
-          canvasId: "bottleImg",
-          quality: 1,
-          destWidth: 1300,
-          destHeight: 4000,
-          success(res) {
-            wx.saveImageToPhotosAlbum({
-              filePath: res.tempFilePath,
-              success() {
-                console.log("成功保存")
-                success()
-              },
-              fail(res) {
-                console.log(res.errMsg)
-                wx.getSetting({
-                  success(res) {
-                    if (!res.authSetting['scope.writePhotosAlbum']) {
-                      needauth()
-                      wx.authorize({
-                        scope: 'scope.writePhotosAlbum',
-                        success () {
-                          getauth()
-                        },
-                        fail () {
-                          console.error("Authorization Failed")
+      backgroundPath = res.tempFilePath
+      console.log("Background" + backgroundPath)
+      wx.cloud.downloadFile({
+        fileID: bottleUrl,
+        success: res =>{
+          drawAll(context, res.tempFilePath)
+    
+          context.draw(true, function(){
+            wx.canvasToTempFilePath({
+              canvasId: "bottleImg",
+              quality: 1,
+              destWidth: 1300,
+              destHeight: 4000,
+              success(res) {
+                wx.saveImageToPhotosAlbum({
+                  filePath: res.tempFilePath,
+                  success() {
+                    console.log("Saved")
+                    success()
+                  },
+                  fail(res) {
+                    console.log(res.errMsg)
+                    wx.getSetting({
+                      success(res) {
+                        if (!res.authSetting['scope.writePhotosAlbum']) {
                           needauth()
+                          wx.authorize({
+                            scope: 'scope.writePhotosAlbum',
+                            success () {
+                              getauth()
+                            },
+                            fail () {
+                              console.error("Authorization Failed")
+                              needauth()
+                            }
+                          })
                         }
-                      })
-                    }
+                      }
+                    })
                   }
                 })
               }
             })
-          }
-        })
+          })
+    
+        }
       })
 
-
     }
-  })
+    })
+  
 }
