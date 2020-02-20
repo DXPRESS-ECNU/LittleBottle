@@ -10,7 +10,7 @@
     <button wx:if="{{!isauth}}" open-type="openSetting" bindtap='openSetting'>请授权</button>
   </view>
   <view style='width:1px;height:1rpx;overflow:hidden;'>
-    <canvas style="width:1300px;height:4000px;" canvas-id="bottleImg"></canvas>
+    <canvas style="width:1300px;height:2800px;" canvas-id="bottleImg"></canvas>
   </view>
 </view>
 
