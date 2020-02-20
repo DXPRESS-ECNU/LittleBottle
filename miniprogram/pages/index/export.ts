@@ -83,7 +83,7 @@ export const Export=(bottles: any[],success: Function,needauth: Function,getauth
               canvasId: "bottleImg",
               quality: 1,
               destWidth: 1300,
-              destHeight: 4000,
+              destHeight: 2800,
               success(res) {
                 wx.saveImageToPhotosAlbum({
                   filePath: res.tempFilePath,
