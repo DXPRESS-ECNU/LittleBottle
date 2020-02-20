@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between; */
   /* padding-top: 20rpx; */
-  padding-left: 50rpx;
-  padding-right: 50rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
   box-sizing: border-box;
 } 
