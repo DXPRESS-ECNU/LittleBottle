@@ -6,7 +6,6 @@ export const Export=(bottles: any[],success: Function,needauth: Function,getauth
     let height = quality[3]
 
     context.drawImage(url, x, y, width, height)
-    //context.draw(true)
 
   }
   const drawText = (context: WechatMiniprogram.CanvasContext, text: string, quality: number[]): void =>{
