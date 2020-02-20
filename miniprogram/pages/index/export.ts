@@ -26,7 +26,7 @@ export const Export=(bottles: any[]): void =>{
     context.rect(0, 0, 1300, 4000)
     context.setFillStyle("white")
     context.fill()
-    context.draw()
+    //context.draw()
     context.setFillStyle("black")
     
     let bottleIndex = 0
@@ -75,6 +75,8 @@ export const Export=(bottles: any[]): void =>{
         wx.canvasToTempFilePath({
           canvasId: "bottleImg",
           quality: 1,
+          destWidth: 1300,
+          destHeight: 4000,
           success(res) {
             wx.saveImageToPhotosAlbum({
               filePath: res.tempFilePath,
@@ -92,6 +94,4 @@ export const Export=(bottles: any[]): void =>{
 
     }
   })
-  //保存
-
 }
