@@ -53,9 +53,6 @@ Page({
     exportbtnText: "分享图片",
   },
   onLoad() {
-    //调试用,记得删除
-    //Export()
-
     wx.cloud.init()
     var fs = wx.getFileSystemManager()
     wx.cloud.downloadFile({
@@ -68,7 +65,6 @@ Page({
           bottles
         })
         console.log(this.data.bottles)
-
       },
       fail: console.error
     })
