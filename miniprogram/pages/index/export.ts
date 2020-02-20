@@ -8,7 +8,7 @@ export const Export=(): void =>{
       src: url,
       success: function (res) {
         context.drawImage(res.path, x, y, width, height)
-        //context.draw(true)
+        context.draw(true)
       },
       fail: function (res) {
         console.log(res.errMsg)
@@ -31,7 +31,10 @@ export const Export=(): void =>{
   const titleHeight = 300
   const picWidth = 180
 
-  //context.rect(0, 0, )
+  context.rect(0, 0, 1300, 4000)
+  context.setFillStyle("white")
+  context.fill()
+  context.draw()
 
   for(let y = 1; y <= 6; ++y){
     for (let x = 1; x <= 5; ++x) {
