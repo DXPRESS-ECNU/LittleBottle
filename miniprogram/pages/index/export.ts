@@ -10,6 +10,7 @@ export const Export=(bottles: any[],success: Function,needauth: Function,getauth
   }
   const drawText = (context: WechatMiniprogram.CanvasContext, text: string, quality: number[]): void =>{
     let x = quality[0]
+    x -= (text.length - 4) * 20
     let y = quality[1]
     let width = quality[2]
     context.setFontSize(40)
@@ -57,7 +58,7 @@ export const Export=(bottles: any[],success: Function,needauth: Function,getauth
           }
         }
         drawPic(context, bottleUrl, [50 * x + bottleWidth * (x - 1), (bottleHeight + 100) * (y - 1) + titleHeight, bottleWidth, bottleHeight])
-        drawText(context, bottles[bottleIndex].name, [50*x+bottleWidth*(x-1)+25, (bottleHeight+50)*y+50*(y-1)+titleHeight, 150])
+        drawText(context, bottles[bottleIndex].name, [50*x+bottleWidth*(x-1)+15, (bottleHeight+50)*y+50*(y-1)+titleHeight, 300])
         bottleIndex++
       }
     }
