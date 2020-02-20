@@ -59,6 +59,7 @@ Page({
           bottles
         })
         console.log(this.data.bottles)
+
       },
       fail: console.error
     })
@@ -70,7 +71,7 @@ Page({
     // })
     // console.log(this.data.bottles)
   },
-  updateBottle(event){
+  updateBottle(event:any){
     var bottles = this.data.bottles
     var id = event.currentTarget.dataset.index
     bottles[id].update()

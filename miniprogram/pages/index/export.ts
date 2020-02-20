@@ -1,5 +1,5 @@
 export const Export=(): void =>{
-  const drawPic = (context: CanvasContext, url: string, quality: number[]): void =>{
+  const drawPic = (context: WechatMiniprogram.CanvasContext, url: string, quality: number[]): void =>{
     let x = quality[0]
     let y = quality[1]
     let width = quality[2]
@@ -15,7 +15,7 @@ export const Export=(): void =>{
       }
     })
   }
-  const drawText = (context: CanvasContext, text: string, quality: number[]): void =>{
+  const drawText = (context: WechatMiniprogram.CanvasContext, text: string, quality: number[]): void =>{
     let x = quality[0]
     let y = quality[1]
     let width = quality[2]
@@ -25,7 +25,7 @@ export const Export=(): void =>{
   }
   const context = wx.createCanvasContext('bottleImg')
   const bottleUrl = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottle.png"
-  const picUrl = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/1.png"
+  const picUrl = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/figs/1.png"
   const bottleHeight = 310
   const bottleWidth = 200
   const titleHeight = 300
