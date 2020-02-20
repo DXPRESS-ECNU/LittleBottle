@@ -21,11 +21,11 @@ export const Export=(): void =>{
     let width = quality[2]
     context.setFontSize(30)
     context.fillText(text, x, y, width)
-    //context.draw(true)
+    context.draw(true)
   }
   const context = wx.createCanvasContext('bottleImg')
   const bottleUrl = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottle.png"
-  const picUrl = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/1.png"
+  const picUrl = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/figs/1.png"
   const bottleHeight = 310
   const bottleWidth = 200
   const titleHeight = 300
@@ -35,6 +35,7 @@ export const Export=(): void =>{
   context.setFillStyle("white")
   context.fill()
   context.draw()
+  context.setFillStyle("black")
 
   for(let y = 1; y <= 6; ++y){
     for (let x = 1; x <= 5; ++x) {
@@ -46,6 +47,7 @@ export const Export=(): void =>{
       drawText(context, "有四个字", [50*x+bottleWidth*(x-1)+40, (bottleHeight+50)*y+50*(y-1)+titleHeight, 150])
     }
   }
+  //保存
   context.draw(true, function(){
     setTimeout(function(){
       wx.canvasToTempFilePath({
@@ -63,6 +65,6 @@ export const Export=(): void =>{
           })
         }
       })
-    }, 3000)
+    }, 6000)
     })
 }
