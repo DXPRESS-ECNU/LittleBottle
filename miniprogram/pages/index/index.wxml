@@ -15,7 +15,7 @@
       <image wx:if="{{full > 1}}" class="stuff2" src="{{path}}"></image>
       <image wx:if="{{full > 2}}" class="stuff3" src="{{path}}"></image>
       <image wx:if="{{full > 3}}" class="stuff4" src="{{path}}"></image>
-      <image wx:if="{{full > 4}}" class="stuff5" src="{{path}}"></image>
+      <image wx:if="{{full > 4}}" class="stuff5" src="{{path}}"></image> 
     </view>
     <text class="name">{{name}}</text>
   </view>
