@@ -1,4 +1,7 @@
 /**index.wxss**/
+text {
+  text-align: center;
+}
 #title-row {
   display: flex;
   justify-content: center;
@@ -8,15 +11,15 @@
   display: grid;
   margin-top: 50rpx;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: repeat(6, 150rpx);
+  grid-template-rows: repeat(6, 180rpx);
   justify-content: center;
   overflow: hidden;
 }
 
 .empty {
   position: relative;
-  width: 100rpx;
-  height: 100rpx;
+  width: 130rpx;
+  height: 130rpx;
 }
 
 .name {
@@ -29,36 +32,36 @@
 }
 
 .stuff1 {
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
   position: absolute;
   z-index: 1;
-  transform: translateX(-55rpx) translateY(70rpx)
+  transform: translateX(-70rpx) translateY(88rpx)
 }
 .stuff2 {
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
   position: absolute;
   z-index: 2;
-  transform: translateX(-75rpx) translateY(60rpx)
+  transform: translateX(-100rpx) translateY(67rpx)
 }
 .stuff3 {
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
   position: absolute;
   z-index: 3;
-  transform: translateY(-60rpx) translateX(20rpx)
+  transform: translateX(-70rpx) translateY(46rpx)
 }
 .stuff4 {
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
   position: absolute;
-  z-index: 3;
-  left: -50%
+  z-index: 4;
+  transform: translateX(-100rpx) translateY(25rpx)
 }
 .stuff5 {
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
   position: absolute;
-  z-index: 3;
+  transform: translateX(-70rpx) translateY(4rpx)
 }

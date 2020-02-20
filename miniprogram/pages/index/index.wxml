@@ -1,8 +1,5 @@
 <!--index.wxml-->
 <view class="container">
-  <view id="title-row">
-    <text id="title">我是标题</text>
-  </view>
   <view class="bottle-grid"> 
     <view wx:for="{{bottles}}" wx:for-item="bt" wx:for-index="idx">
       <template is="bottle" data="{{...bt, idx: idx}}"></template>
