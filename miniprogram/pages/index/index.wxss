@@ -10,9 +10,55 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: repeat(6, 150rpx);
   justify-content: center;
+  overflow: hidden;
 }
 
 .empty {
+  position: relative;
   width: 100rpx;
   height: 100rpx;
+}
+
+.name {
+  display: block;
+  font-size: 0.8rem;
+}
+
+.bottle {
+
+}
+
+.stuff1 {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  z-index: 1;
+  transform: translateX(-55rpx) translateY(70rpx)
+}
+.stuff2 {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  z-index: 2;
+  transform: translateX(-75rpx) translateY(60rpx)
+}
+.stuff3 {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  z-index: 3;
+  transform: translateY(-60rpx) translateX(20rpx)
+}
+.stuff4 {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  z-index: 3;
+  left: -50%
+}
+.stuff5 {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  z-index: 3;
 }
