@@ -15,19 +15,20 @@ export const Export=(bottles: any[],success: Function,needauth: Function,getauth
     context.setFontSize(30)
     context.fillText(text, x, y, width)
   }
-  const drawAll = (context: WechatMiniprogram.CanvasContext, bottleUrl: string): void =>{
+  const drawAll = (context: WechatMiniprogram.CanvasContext, bottleUrl: string, bgUrl: string): void =>{
     const bottleHeight = 300
     const bottleWidth = 200
-    const titleHeight = 100
+    const titleHeight = 150
     const picWidth = 100
 
-    //画背景
-    context.rect(0, 0, 1300, 4000)
-    context.setFillStyle("white")
-    context.fill()
-    //context.draw()
-    context.setFillStyle("black")
-    
+    // //画背景
+    // context.rect(0, 0, 1300, 4000)
+    // context.setFillStyle("white")
+    // context.fill()
+    // //context.draw()
+    // context.setFillStyle("black")
+    context.drawImage(bgUrl, 0, 0, 1300, 2800)
+
     let bottleIndex = 0
     for(let y = 1; y <= 6; ++y){
       for (let x = 1; x <= 5; ++x) {
@@ -55,7 +56,6 @@ export const Export=(bottles: any[],success: Function,needauth: Function,getauth
             }
           }
         }
-        //画瓶子
         drawPic(context, bottleUrl, [50 * x + bottleWidth * (x - 1), (bottleHeight + 100) * (y - 1) + titleHeight, bottleWidth, bottleHeight])
         drawText(context, bottles[bottleIndex].name, [50*x+bottleWidth*(x-1)+40, (bottleHeight+50)*y+50*(y-1)+titleHeight, 150])
         bottleIndex++
@@ -76,7 +76,7 @@ export const Export=(bottles: any[],success: Function,needauth: Function,getauth
       wx.cloud.downloadFile({
         fileID: bottleUrl,
         success: res =>{
-          drawAll(context, res.tempFilePath)
+          drawAll(context, res.tempFilePath, backgroundPath)
     
           context.draw(true, function(){
             wx.canvasToTempFilePath({
