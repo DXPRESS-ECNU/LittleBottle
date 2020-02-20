@@ -1,8 +1,5 @@
 <!--index.wxml-->
 <view class="container">
-  <view id="title-row">
-    <text id="title">我是标题</text>
-  </view>
   <view class="bottle-grid"> 
     <view wx:for="{{bottles}}" wx:for-item="bt" wx:for-index="idx">
       <template is="bottle" data="{{...bt, idx: idx}}"></template>
@@ -12,14 +9,14 @@
 
 <template name="bottle">
   <view>
-    <view class="bottle">
-      <image src="cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottle.svg"     class="empty" bindtap="updateBottle" data-index="{{idx}}">
+    <view class="bottle" bindtap="updateBottle" data-index="{{idx}}">
+      <image src="cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottle.svg"     class="empty">
       </image>
-      <image class="stuff1" src="../../bottles/1.png"></image>
-      <image class="stuff2" src="../../bottles/1.png"></image>
-      <!-- <image class="stuff3" src="../../bottles/1.png"></image>
-      <image class="stuff4" src="../../bottles/1.png"></image>
-      <image class="stuff5" src="../../bottles/1.png"></image> -->
+      <image wx:if="{{1<=full}}" class="stuff1" src="../../bottles/1.png"></image>
+      <image wx:if="{{2<=full}}" class="stuff2" src="../../bottles/1.png"></image>
+      <image wx:if="{{3<=full}}" class="stuff3" src="../../bottles/1.png"></image>
+      <image wx:if="{{4<=full}}" class="stuff4" src="../../bottles/1.png"></image>
+      <image wx:if="{{5<=full}}" class="stuff5" src="../../bottles/1.png"></image>
     </view>
     <text class="name">{{name}}</text>
   </view>
