@@ -10,6 +10,7 @@
     <button wx:if="{{!isauth}}" open-type="openSetting" bindtap='openSetting'>请授权</button>
   </view>
   <view class="copyright">© 2020 大夏通讯社</view>
+  <!-- <official-account style="padding-top:10rpx"></official-account> -->
   <view style='width:1px;height:1rpx;overflow:hidden;'>
     <canvas style="width:1300px;height:2800px;" canvas-id="bottleImg"></canvas>
   </view>
@@ -17,7 +18,7 @@
 
 <template name="bottle">
   <view class="bottle">
-    <image src="cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottle.svg" class="bottle" bindtap="updateBottle" data-index="{{idx}}" bindtap="updateBottle"></image>
+    <image src="https://qc-pubfile.oss-cn-shanghai.aliyuncs.com/xcx_bottle/bottle.svg" class="bottle" bindtap="updateBottle" data-index="{{idx}}" bindtap="updateBottle"></image>
     <image wx:if="{{full > 0}}" class="stuff1" src="{{path}}"></image>
     <image wx:if="{{full > 1}}" class="stuff2" src="{{path}}"></image>
     <image wx:if="{{full > 2}}" class="stuff3" src="{{path}}"></image>

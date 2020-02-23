@@ -4,7 +4,7 @@
 import { Export } from "./export"
 
 const app = getApp<IAppOption>()
-const URL_PREFIX = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/"
+const URL_PREFIX = "https://qc-pubfile.oss-cn-shanghai.aliyuncs.com/xcx_bottle/"
 
 interface IBottleConfig{
   path: string
@@ -25,13 +25,15 @@ class Bottle {
   }
 
   async download(){
-    await wx.cloud.downloadFile({
-      fileID: this.path
-    }).then(res => {
-      //console.log(res.tempFilePath)
-      this.path=res.tempFilePath
-    }).catch(error => {
-      console.error(error)
+    wx.downloadFile({
+      url: this.path,
+      success: res=>{
+        if (res.statusCode === 200)
+        {
+          this.path = res.tempFilePath
+        }
+      },
+      fail: console.error
     })
   }
 
@@ -56,8 +58,8 @@ Page({
   onLoad() {
     wx.cloud.init()
     var fs = wx.getFileSystemManager()
-    wx.cloud.downloadFile({
-      fileID: 'cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottlelist1.json',
+    wx.downloadFile({
+      url: 'https://qc-pubfile.oss-cn-shanghai.aliyuncs.com/xcx_bottle/bottlelist1.json',
       success: res => {
         console.log(res.tempFilePath)
         var contents: IBottleConfig[] = JSON.parse(fs.readFileSync(res.tempFilePath, "utf8").toString())

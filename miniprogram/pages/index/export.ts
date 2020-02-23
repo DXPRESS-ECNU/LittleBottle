@@ -65,17 +65,17 @@ export const Export=(bottles: any[],success: Function,needauth: Function,getauth
   }
 
   const context = wx.createCanvasContext('bottleImg')
-  const bottleUrl = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/bottle.png"
-  const backgroundUrl = "cloud://dxzsbottle-iu8cx.6478-dxzsbottle-iu8cx-1301327315/background.jpg"
+  const bottleUrl = "https://qc-pubfile.oss-cn-shanghai.aliyuncs.com/xcx_bottle/bottle.png"
+  const backgroundUrl = "https://qc-pubfile.oss-cn-shanghai.aliyuncs.com/xcx_bottle/background.jpg"
   let backgroundPath: string
 
-  wx.cloud.downloadFile({
-    fileID: backgroundUrl,
+  wx.downloadFile({
+    url: backgroundUrl,
     success: res =>{
       backgroundPath = res.tempFilePath
       console.log("Background" + backgroundPath)
-      wx.cloud.downloadFile({
-        fileID: bottleUrl,
+      wx.downloadFile({
+        url: bottleUrl,
         success: res =>{
           drawAll(context, res.tempFilePath, backgroundPath)
     
